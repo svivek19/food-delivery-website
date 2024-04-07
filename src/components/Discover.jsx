@@ -1,4 +1,6 @@
 import React from "react";
+import img from "../assets/1.jpg";
+import { FaArrowRight } from "react-icons/fa";
 
 const Discover = () => {
   return (
@@ -7,45 +9,52 @@ const Discover = () => {
         <h1>Uncover Your Essential Cravings with Our Vbite!</h1>
       </div>
 
-      <div>
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="grid gap-10 my-20 grid-cols-3">
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 transition-all">
           <a href="#">
             <img
               className="rounded-t-lg"
-              src="/docs/images/blog/image-1.jpg"
+              src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*sqvxzFwn2mVg77SEQE_3Vg.jpeg"
               alt=""
             />
           </a>
           <div className="p-5">
-            <a href="#">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Noteworthy technology acquisitions 2021
-              </h5>
-            </a>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              Here are the biggest enterprise technology acquisitions of 2021 so
-              far, in reverse chronological order.
-            </p>
             <a
               href="#"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="inline-flex items-center px-3 py-2 text-lg font-medium text-center"
             >
-              Read more
-              <svg
-                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
+              Pizza
+              <FaArrowRight className="ml-1 mt-1 text-xs" />
+            </a>
+          </div>
+        </div>
+
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+          <a href="#">
+            <img className="rounded-t-lg" src={img} alt="" />
+          </a>
+          <div className="p-5">
+            <a
+              href="#"
+              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center"
+            >
+              Pizza
+              <FaArrowRight />
+            </a>
+          </div>
+        </div>
+
+        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+          <a href="#">
+            <img className="rounded-t-lg" src={img} alt="" />
+          </a>
+          <div className="p-5">
+            <a
+              href="#"
+              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center"
+            >
+              Pizza
+              <FaArrowRight />
             </a>
           </div>
         </div>
