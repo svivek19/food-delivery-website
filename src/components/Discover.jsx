@@ -1,6 +1,9 @@
 import React from "react";
-import img from "../assets/1.jpg";
 import { FaArrowRight } from "react-icons/fa";
+
+import pizza from "../assets/discover/pizza.jpg";
+import burger from "../assets/discover/burger.jpg";
+import noodles from "../assets/discover/noodles.jpg";
 
 const Discover = () => {
   return (
@@ -9,53 +12,63 @@ const Discover = () => {
         <h1>Uncover Your Essential Cravings with Our Vbite!</h1>
       </div>
 
-      <div className="grid gap-10 my-20 grid-cols-3">
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow hover:scale-105 transition-all">
-          <a href="#">
-            <img
-              className="rounded-t-lg"
-              src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*sqvxzFwn2mVg77SEQE_3Vg.jpeg"
-              alt=""
-            />
-          </a>
-          <div className="p-5">
-            <a
-              href="#"
-              className="inline-flex items-center px-3 py-2 text-lg font-medium text-center"
-            >
-              Pizza
-              <FaArrowRight className="ml-1 mt-1 text-xs" />
-            </a>
+      <div className="overflow-x-auto md:overflow-x-hidden">
+        <div className="flex justify-around gap-10 my-20">
+          <div className="w-full md:w-11/12 bg-white border border-gray-200 rounded-lg shadow-xl hover:scale-105 hover:shadow-2xl transition-all">
+            <div>
+              <img
+                className="rounded-t-lg max-w-48 md:max-w-full"
+                src={pizza}
+                alt="pizza"
+              />
+            </div>
+            <div className="p-5">
+              <a
+                href="#"
+                className="inline-flex items-center px-3 py-2 text-xl font-medium text-center"
+              >
+                Pizza
+                <FaArrowRight className="ml-1 mt-1 text-xs" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-          <a href="#">
-            <img className="rounded-t-lg" src={img} alt="" />
-          </a>
-          <div className="p-5">
-            <a
-              href="#"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center"
-            >
-              Pizza
-              <FaArrowRight />
-            </a>
+          <div className="w-full md:w-11/12 bg-white border border-gray-200 rounded-lg shadow-xl hover:scale-105 hover:shadow-2xl transition-all">
+            <div>
+              <img
+                className="rounded-t-lg  max-w-48 md:max-w-full"
+                src={burger}
+                alt="burger"
+              />
+            </div>
+            <div className="p-5">
+              <a
+                href="#"
+                className="inline-flex items-center px-3 py-2 text-xl font-medium text-center"
+              >
+                Burger
+                <FaArrowRight className="ml-1 mt-1 text-xs" />
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-          <a href="#">
-            <img className="rounded-t-lg" src={img} alt="" />
-          </a>
-          <div className="p-5">
-            <a
-              href="#"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center"
-            >
-              Pizza
-              <FaArrowRight />
-            </a>
+          <div className="w-full md:w-11/12 bg-white border border-gray-200 rounded-xl shadow-xl hover:scale-105 hover:shadow-2xl transition-all">
+            <div>
+              <img
+                className="rounded-t-lg max-w-48 md:max-w-full"
+                src={noodles}
+                alt="noodles"
+              />
+            </div>
+            <div className="p-5">
+              <a
+                href="#"
+                className="inline-flex items-center px-3 py-2 text-lg font-medium text-center"
+              >
+                Noodle's
+                <FaArrowRight className="ml-1 mt-1 text-xs" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
