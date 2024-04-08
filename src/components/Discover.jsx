@@ -12,7 +12,7 @@ const Discover = () => {
         <h1>Uncover Your Essential Cravings with Our Vbite!</h1>
       </div>
 
-      <div className="overflow-x-auto md:overflow-x-hidden">
+      <div className="overflow-x-auto md:overflow-x-hidden scrollbar-hide">
         <div className="flex justify-around gap-10 my-20">
           <div className="w-full md:w-11/12 bg-white border border-gray-200 rounded-lg shadow-xl hover:scale-105 hover:shadow-2xl transition-all">
             <div>
