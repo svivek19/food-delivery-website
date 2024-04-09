@@ -4,6 +4,7 @@ import Logo from "../assets/brandLogo.png";
 import { CiUser } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,10 +42,18 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex space-x-8 my-5 text-lg">
           <ul className="flex space-x-5">
-            <li className="text-[#52321b] cursor-pointer">Home</li>
-            <li className="text-[#52321b] cursor-pointer">Pizza</li>
-            <li className="text-[#52321b] cursor-pointer">Burger</li>
-            <li className="text-[#52321b] cursor-pointer">Noodle's</li>
+            <Link to={"/"} className="text-[#52321b] cursor-pointer">
+              Home
+            </Link>
+            <Link to={"/pizza"} className="text-[#52321b] cursor-pointer">
+              Pizza
+            </Link>
+            <Link to={"burger"} className="text-[#52321b] cursor-pointer">
+              Burger
+            </Link>
+            <Link to={"noodles"} className="text-[#52321b] cursor-pointer">
+              Noodle's
+            </Link>
           </ul>
         </div>
         <div className="text-3xl my-5 space-x-5 flex">
