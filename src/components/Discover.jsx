@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 import pizza from "../assets/discover/pizza.jpg";
 import burger from "../assets/discover/burger.jpg";
 import noodles from "../assets/discover/noodles.jpg";
+import { Link } from "react-router-dom";
 
 const Discover = () => {
   return (
@@ -26,13 +27,13 @@ const Discover = () => {
               />
             </div>
             <div className="p-5">
-              <a
-                href="#"
+              <Link
+                to={"/pizza"}
                 className="inline-flex items-center px-3 py-2 text-xl font-medium text-center"
               >
                 Pizza
                 <FaArrowRight className="ml-1 mt-1 text-xs" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -48,13 +49,13 @@ const Discover = () => {
               />
             </div>
             <div className="p-5">
-              <a
-                href="#"
+              <Link
+                to={"/burger"}
                 className="inline-flex items-center px-3 py-2 text-xl font-medium text-center"
               >
                 Burger
                 <FaArrowRight className="ml-1 mt-1 text-xs" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -70,13 +71,13 @@ const Discover = () => {
               />
             </div>
             <div className="p-5">
-              <a
-                href="#"
+              <Link
+                to={"/noodles"}
                 className="inline-flex items-center px-3 py-2 text-lg font-medium text-center"
               >
                 Noodle's
                 <FaArrowRight className="ml-1 mt-1 text-xs" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
