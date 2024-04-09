@@ -6,6 +6,7 @@ import Discover from "./components/Discover";
 import SpecialOffer from "./components/SpecialOffer";
 import AppDownload from "./components/AppDownload";
 import Footer from "./components/Footer";
+import Delivery from "./components/Delivery";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Carousel />
       <Discover />
       <SpecialOffer />
+      <Delivery />
       <AppDownload />
       <Footer />
     </>
