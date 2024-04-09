@@ -5,6 +5,7 @@ import Carousel from "./components/Carousel";
 import Discover from "./components/Discover";
 import SpecialOffer from "./components/SpecialOffer";
 import AppDownload from "./components/AppDownload";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Discover />
       <SpecialOffer />
       <AppDownload />
+      <Footer />
     </>
   );
 };
