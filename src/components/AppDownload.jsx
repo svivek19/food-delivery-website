@@ -7,12 +7,15 @@ const AppDownload = () => {
     <div>
       <div className="mt-10 bg-[#dfdddc] p-3 md:p-8">
         <div className="w-5/6 mx-auto md:flex justify-between space-y-4 md:space-y-0">
-          <div className="text-xl md:text-3xl font-sans font-bold text-[#52321b]">
+          <div
+            className="text-xl md:text-3xl font-sans font-bold text-[#52321b]"
+            data-aos="fade-up"
+          >
             <h1>
               For better experience, <br /> Download the Vbite app now
             </h1>
           </div>
-          <div className="flex space-x-5">
+          <div className="flex space-x-5" data-aos="fade-up">
             <img src={play} alt="playstore" className="w-32 md:w-52" />
             <img src={app} alt="app store" className="w-32 md:w-52" />
           </div>

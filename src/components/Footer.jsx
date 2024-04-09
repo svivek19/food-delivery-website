@@ -5,7 +5,10 @@ function Footer() {
   return (
     <footer className="bg-[#412614] text-[#dad2cc]">
       <div className="w-full max-w-screen-xl mx-auto p-6 md:py-8">
-        <div className="sm:flex sm:items-center sm:justify-between">
+        <div
+          className="sm:flex sm:items-center sm:justify-between"
+          data-aos="fade-up"
+        >
           <a
             href="/"
             className="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
