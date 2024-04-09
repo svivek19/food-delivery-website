@@ -35,7 +35,7 @@ const SpecialOffer = () => {
   return (
     <div className="w-full bg-[#52321b] px-0 py-4 md:p-5">
       <div className=" w-[95%] md:w-5/6 mx-auto text-3xl text-center font-medium">
-        <div className="text-[#e4c9b5] py-2 text-start">
+        <div className="text-[#e4c9b5] py-2 text-start" data-aos="fade-up">
           <h1>Special Offers</h1>
         </div>
 
@@ -45,6 +45,7 @@ const SpecialOffer = () => {
               <div
                 key={index}
                 className="w-full md:w-11/12 bg-white rounded-lg"
+                data-aos="fade-up"
               >
                 <div>
                   <img
@@ -79,7 +80,7 @@ const SpecialOffer = () => {
           </div>
         </div>
 
-        <div>
+        <div data-aos="fade-up">
           <button className="p-1 rounded-full border border-[#f0edeb] bg-[#ebe3de] text-base font-normal text-center hover:scale-105 transition-all px-6 py-2">
             View all
           </button>
