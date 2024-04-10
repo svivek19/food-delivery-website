@@ -2,15 +2,23 @@ import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { Puff } from "react-loader-spinner";
 
 const Noodles = () => {
   const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot = await getDocs(collection(db, "noodles"));
-      const data = querySnapshot.docs.map((doc) => doc.data());
-      setProduct(data);
+      try {
+        const querySnapshot = await getDocs(collection(db, "noodles"));
+        const data = querySnapshot.docs.map((doc) => doc.data());
+        setProduct(data);
+        setLoading(false);
+      } catch (err) {
+        console.log("Error fetching data: ", err);
+        setLoading(false);
+      }
     };
 
     fetchData();
@@ -27,7 +35,13 @@ const Noodles = () => {
           Cheesilicious Noodles to make every day extraordinary.
         </p>
       </div>
-      <Card product={product} />
+      {loading ? (
+        <div className="flex justify-center mb-96">
+          <Puff color="#52321b" height={50} width={50} />
+        </div>
+      ) : (
+        <Card product={product} />
+      )}
     </div>
   );
 };

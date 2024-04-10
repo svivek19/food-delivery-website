@@ -72,17 +72,41 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden flex flex-col items-center justify-center px-4">
           <ul className="my-4 text-lg space-y-4">
-            <li onClick={toggleMenu} className="text-[#52321b] cursor-pointer">
-              Home
+            <li>
+              <Link
+                to={"/"}
+                onClick={toggleMenu}
+                className="text-[#52321b] cursor-pointer"
+              >
+                Home
+              </Link>
             </li>
-            <li onClick={toggleMenu} className="text-[#52321b] cursor-pointer">
-              Pizza
+            <li>
+              <Link
+                to={"/pizza"}
+                onClick={toggleMenu}
+                className="text-[#52321b] cursor-pointer"
+              >
+                Pizza
+              </Link>
             </li>
-            <li onClick={toggleMenu} className="text-[#52321b] cursor-pointer">
-              Burger
+            <li>
+              <Link
+                to={"/burger"}
+                onClick={toggleMenu}
+                className="text-[#52321b] cursor-pointer"
+              >
+                Burger
+              </Link>
             </li>
-            <li onClick={toggleMenu} className="text-[#52321b] cursor-pointer">
-              Noodle's
+            <li>
+              <Link
+                to={"/noodles"}
+                onClick={toggleMenu}
+                className="text-[#52321b] cursor-pointer"
+              >
+                Noodle's
+              </Link>
             </li>
           </ul>
         </div>
