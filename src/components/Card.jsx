@@ -2,11 +2,14 @@ import React from "react";
 
 const Card = ({ product }) => {
   return (
-    <div className="mt-36">
+    <div>
       {product.map((data, index) => (
         <div className="w-11/12 md:w-5/6 mx-auto" key={index}>
           <div className="grid md:grid-cols-2 py-2 md:py-5">
-            <div className="w-full md:w-1/2 md:flex justify-center">
+            <div
+              className="w-full md:w-1/2 md:flex justify-center"
+              data-aos="fade-up"
+            >
               <div className="w-full">
                 <img
                   src={data.image}
@@ -16,7 +19,7 @@ const Card = ({ product }) => {
               </div>
             </div>
 
-            <div className="p-2 text-start">
+            <div className="p-2 text-start" data-aos="fade-up">
               <h1 className="text-2xl font-bold text-[#52321b] ">
                 {data.name}
               </h1>

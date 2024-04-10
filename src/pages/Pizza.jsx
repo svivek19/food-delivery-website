@@ -17,10 +17,15 @@ const Pizza = () => {
   }, []);
 
   return (
-    <div>
-      <div className="w-11/12 md:w-5/6 text-[#52321b]">
-        <h1>Pizza</h1>
-        <p>Cheesilicious pizzas to make every day extraordinary.</p>
+    <div className="mt-28">
+      <div
+        className="w-11/12 md:w-5/6 mx-auto text-[#52321b]"
+        data-aos="fade-up"
+      >
+        <h1 className="text-4xl font-semibold mb-2">Pizza</h1>
+        <p className="text-xl text-[#6e6a67]">
+          Cheesilicious pizzas to make every day extraordinary.
+        </p>
       </div>
       <Card product={product} />
     </div>
