@@ -1,6 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addItem } from "../reducers/cartReducer";
 
 const Card = ({ product }) => {
+  const dispatch = useDispatch();
+
+  const handleAdd = (data) => {
+    dispatch(addItem(data));
+  };
+
   return (
     <div>
       {product.map((data, index) => (
@@ -33,7 +41,10 @@ const Card = ({ product }) => {
                 <h1 className="text-xl font-bold text-[#704b30] md:text-xl">
                   Rs. {data.price}
                 </h1>
-                <button className="px-6 py-3 text-xs font-bold text-white uppercase bg-[#52321b] hover:scale-[102%] transition-all rounded-md">
+                <button
+                  className="px-6 py-3 text-xs font-bold text-white uppercase bg-[#52321b] hover:scale-[102%] transition-all rounded-md"
+                  onClick={() => handleAdd(data)}
+                >
                   Add to Cart
                 </button>
               </div>

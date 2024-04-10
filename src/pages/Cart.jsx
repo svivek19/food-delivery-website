@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import CartItems from "../components/CartItems";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
   const [loading, setLoading] = useState(true);
+  const cartItem = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,7 +24,7 @@ const Cart = () => {
           <Puff width={50} height={50} color="#52321b" />
         </div>
       ) : (
-        <CartItems />
+        <CartItems cartItem={cartItem} />
       )}
     </div>
   );
