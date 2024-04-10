@@ -38,7 +38,7 @@ const Navbar = () => {
     >
       <div className="flex justify-around items-center px-4 md:px-0">
         <div>
-          <img src={Logo} alt="" width={70} />
+          <img src={Logo} alt="brand logo" width={70} />
         </div>
         <div className="hidden md:flex space-x-8 my-5 text-lg">
           <ul className="flex space-x-5">
@@ -58,7 +58,9 @@ const Navbar = () => {
         </div>
         <div className="text-3xl my-5 space-x-5 flex">
           <CiUser className="text-[#52321b] cursor-pointer" />
-          <CiShoppingCart className="text-[#52321b] cursor-pointer" />
+          <Link to={"/cartitems"}>
+            <CiShoppingCart className="text-[#52321b] cursor-pointer" />
+          </Link>
         </div>
 
         <div className="md:hidden">

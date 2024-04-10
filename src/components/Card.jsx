@@ -31,7 +31,7 @@ const Card = ({ product }) => {
 
               <div className="flex justify-between mt-3 item-center">
                 <h1 className="text-xl font-bold text-[#704b30] md:text-xl">
-                  ₹ {data.price}
+                  Rs. {data.price}
                 </h1>
                 <button className="px-6 py-3 text-xs font-bold text-white uppercase bg-[#52321b] hover:scale-[102%] transition-all rounded-md">
                   Add to Cart

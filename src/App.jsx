@@ -10,6 +10,7 @@ import Pizza from "./pages/Pizza";
 import Burger from "./pages/Burger";
 import Noodles from "./pages/Noodles";
 import ViewAll from "./pages/ViewAll";
+import Cart from "./pages/Cart";
 
 const App = () => {
   useEffect(() => {
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/burger" element={<Burger />} />
           <Route path="/noodles" element={<Noodles />} />
           <Route path="/allfoods" element={<ViewAll />} />
+          <Route path="/cartitems" element={<Cart />} />
         </Routes>
         <Footer />
       </Router>
