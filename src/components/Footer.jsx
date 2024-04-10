@@ -39,11 +39,11 @@ function Footer() {
             </li>
             <li>
               <a
-                href="mailto:svivek030503@gmail.com"
+                href="https://vivekananthan.vercel.app/"
                 target="_blank"
                 className="hover:underline"
               >
-                Gmail
+                Portfolio
               </a>
             </li>
           </ul>
