@@ -3,6 +3,7 @@ import combo1 from "../assets/specialOffers/combo1.jpeg";
 import combo2 from "../assets/specialOffers/combo2.jpg";
 import combo3 from "../assets/specialOffers/combo3.jpeg";
 import combo4 from "../assets/specialOffers/combo4.jpeg";
+import { Link } from "react-router-dom";
 
 const SpecialOffer = () => {
   const offers = [
@@ -81,9 +82,12 @@ const SpecialOffer = () => {
         </div>
 
         <div data-aos="fade-up">
-          <button className="p-1 rounded-full border border-[#f0edeb] bg-[#ebe3de] text-base font-normal text-center hover:scale-105 transition-all px-6 py-2">
+          <Link
+            to={"/allfoods"}
+            className="p-1 rounded-full border border-[#f0edeb] bg-[#ebe3de] text-base font-normal text-center hover:scale-105 transition-all px-6 py-2"
+          >
             View all
-          </button>
+          </Link>
         </div>
       </div>
     </div>
