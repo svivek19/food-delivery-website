@@ -13,6 +13,8 @@ const CartItems = () => {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.cart.items);
 
+  console.log(cartItem);
+
   const handleIncrease = (id) => {
     dispatch(increaseQuantity({ id }));
   };
@@ -28,10 +30,6 @@ const CartItems = () => {
   const subtotal = cartItem.reduce((total, item) => {
     return total + item.price * item.quantity;
   }, 0);
-
-  const finalAmount = () => {
-    return subtotal + 30;
-  };
 
   return (
     <div>
