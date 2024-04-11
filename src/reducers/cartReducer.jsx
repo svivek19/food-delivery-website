@@ -9,26 +9,37 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      state.items.push(action.payload);
+      const newItem = action.payload;
+      const existingItem = state.items.find((item) => item.id === newItem.id);
+
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        state.items.push({ ...newItem, quantity: 1 });
+      }
     },
     removeItem(state, action) {
-      const { id } = action.payload;
-      state.items = state.items.filter((item) => item.id !== id);
+      const idToRemove = action.payload.id;
+      state.items = state.items.filter((item) => item.id !== idToRemove);
     },
     increaseQuantity(state, action) {
-      const { id } = action.payload;
-      const item = state.items.find((item) => item.id === id);
+      const idToIncrement = action.payload.id;
+      const itemToIncrement = state.items.find(
+        (item) => item.id === idToIncrement
+      );
 
-      if (item) {
-        item.quantity++;
+      if (itemToIncrement) {
+        itemToIncrement.quantity++;
       }
     },
     decreaseQuantity(state, action) {
-      const { id } = action.payload;
-      const item = state.items.find((item) => item.id === id);
+      const idToDecrement = action.payload.id;
+      const itemToDecrement = state.items.find(
+        (item) => item.id === idToDecrement
+      );
 
-      if (item && item.quantity > 1) {
-        item.quantity--;
+      if (itemToDecrement && itemToDecrement.quantity > 1) {
+        itemToDecrement.quantity--;
       }
     },
   },
