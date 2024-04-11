@@ -91,7 +91,7 @@ const CartItems = () => {
           ))}
         </div>
         {/* Sub total */}
-        <div className=" my-10 md:my-24 select-none pb-10 mb:pb-16 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+        <div className=" my-10 md:my-32 select-none pb-10 mb:pb-16 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
           <div className="mb-2 flex justify-between">
             <p className="text-[#52321b] ">Subtotal</p>
             <p className="text-[#5c4432]">Rs. {subtotal}</p>

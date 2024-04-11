@@ -1,16 +1,42 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { addItem } from "../reducers/cartReducer";
+import { Bounce, ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Card = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleAdd = (data) => {
     dispatch(addItem(data));
+    toast.success(data.name + " " + "added");
   };
 
   return (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={true}
+        newestOnTop={false}
+        closeButton={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="light"
+        transition={Bounce}
+        className="flex justify-center flex-col mt-20 space-y-2"
+        toastStyle={{
+          width: "fit-content",
+          minWidth: "100px",
+          minHeight: "5px",
+          borderRadius: "8px",
+          fontWeight: "bold",
+          padding: "0",
+          color: "#52321b",
+        }}
+      />
       {product.map((data, index) => (
         <div className="w-11/12 md:w-5/6 mx-auto" key={index}>
           <div className="grid md:grid-cols-2 py-2 md:py-5">
