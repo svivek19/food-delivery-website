@@ -5,10 +5,13 @@ import { CiUser } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const foodItem = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +62,10 @@ const Navbar = () => {
         <div className="text-3xl my-5 space-x-5 flex">
           <CiUser className="text-[#52321b] cursor-pointer" />
           <Link to={"/cartitems"}>
-            <CiShoppingCart className="text-[#52321b] cursor-pointer" />
+            <div className="flex text-[#52321b]">
+              <CiShoppingCart className=" cursor-pointer" />
+              <span className="text-base">{`(${foodItem.length})`}</span>
+            </div>
           </Link>
         </div>
 
