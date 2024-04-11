@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { Puff } from "react-loader-spinner";
+import { v4 as uuidv4 } from "uuid";
 
 const Noodles = () => {
   const [product, setProduct] = useState([]);
@@ -12,7 +13,10 @@ const Noodles = () => {
     const fetchData = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "noodles"));
-        const data = querySnapshot.docs.map((doc) => doc.data());
+        const data = querySnapshot.docs.map((doc) => ({
+          id: uuidv4(),
+          ...doc.data(),
+        }));
         setProduct(data);
         setLoading(false);
       } catch (err) {
