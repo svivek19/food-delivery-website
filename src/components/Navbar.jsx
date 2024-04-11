@@ -60,7 +60,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="text-3xl my-5 space-x-5 flex">
-          <Link to={"/login"}>
+          <Link to={"/auth"}>
             <CiUser className="text-[#52321b] cursor-pointer" />
           </Link>
           <Link to={"/cartitems"}>
