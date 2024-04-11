@@ -37,7 +37,7 @@ const CartItems = () => {
         Cart Items {`(${cartItem.length})`}
       </h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
-        <div className="rounded-lg md:w-2/3">
+        <div className="rounded-lg md:w-2/3 select-none">
           {cartItem.map((food, index) => (
             <div
               className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"

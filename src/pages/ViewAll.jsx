@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { Puff } from "react-loader-spinner";
 import Card from "../components/Card";
+import { v4 as uuidv4 } from "uuid";
 
 const ViewAll = () => {
   const [product, setProduct] = useState([]);
@@ -15,9 +16,18 @@ const ViewAll = () => {
         const pizzaQuerySnapshot = await getDocs(collection(db, "pizza"));
         const noodlesQuerySnapshot = await getDocs(collection(db, "noodles"));
 
-        const burgerData = burgerQuerySnapshot.docs.map((doc) => doc.data());
-        const pizzaData = pizzaQuerySnapshot.docs.map((doc) => doc.data());
-        const noodlesData = noodlesQuerySnapshot.docs.map((doc) => doc.data());
+        const burgerData = burgerQuerySnapshot.docs.map((doc) => ({
+          id: uuidv4(),
+          ...doc.data(),
+        }));
+        const pizzaData = pizzaQuerySnapshot.docs.map((doc) => ({
+          id: uuidv4(),
+          ...doc.data(),
+        }));
+        const noodlesData = noodlesQuerySnapshot.docs.map((doc) => ({
+          id: uuidv4(),
+          ...doc.data(),
+        }));
 
         const allFoods = [...burgerData, ...pizzaData, ...noodlesData];
 
