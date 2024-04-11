@@ -1,37 +1,35 @@
-import React from "react";
-import combo1 from "../assets/specialOffers/combo1.jpeg";
-import combo2 from "../assets/specialOffers/combo2.jpg";
-import combo3 from "../assets/specialOffers/combo3.jpeg";
-import combo4 from "../assets/specialOffers/combo4.jpeg";
+import { collection, getDocs } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../firebase";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addItem } from "../reducers/cartReducer";
 
 const SpecialOffer = () => {
-  const offers = [
-    {
-      image: combo1,
-      name: "Mushroom Pizza with Burger Combo",
-      price: "Rs. 180",
-      originalPrice: "Rs. 250",
-    },
-    {
-      image: combo2,
-      name: "Pizza, Burger with Lemon Juice Combo",
-      price: "Rs. 250",
-      originalPrice: "Rs. 380",
-    },
-    {
-      image: combo3,
-      name: "Chicken Burger with Pizza Combo",
-      price: "Rs. 220",
-      originalPrice: "Rs. 300",
-    },
-    {
-      image: combo4,
-      name: "Grilled Stuffed Pizza Burgers",
-      price: "Rs. 300",
-      originalPrice: "Rs. 420",
-    },
-  ];
+  const dispatch = useDispatch();
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "combo offer"));
+        const data = querySnapshot.docs.map((doc) => ({
+          id: uuidv4(),
+          ...doc.data(),
+        }));
+        setProduct(data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const handleAdd = (data) => {
+    dispatch(addItem(data));
+  };
 
   return (
     <div className="w-full bg-[#52321b] px-0 py-4 md:p-5">
@@ -42,7 +40,7 @@ const SpecialOffer = () => {
 
         <div className="overflow-x-auto md:overflow-x-hidden scrollbar-hide text-[#52321b]">
           <div className="flex justify-start md:justify-around gap-10 my-10">
-            {offers.map((offer, index) => (
+            {product.map((data, index) => (
               <div
                 key={index}
                 className="w-full md:w-11/12 bg-white rounded-lg"
@@ -51,28 +49,28 @@ const SpecialOffer = () => {
                 <div>
                   <img
                     className="rounded-t-lg max-w-48 md:max-w-full h-64"
-                    alt={offer.name}
-                    src={offer.image}
+                    alt={data.name}
+                    src={data.image}
                   />
                 </div>
                 <div className="p-1 md:p-5">
-                  <a
-                    href="#"
-                    className="inline-flex items-center text-base font-medium text-center"
-                  >
-                    {offer.name}
-                  </a>
+                  <p className="inline-flex items-center text-base font-medium text-center">
+                    {data.name}
+                  </p>
                 </div>
                 <div className="p-1 text-base font-normal text-center">
                   <p>
-                    {offer.price}{" "}
+                    Rs. {data.price}{" "}
                     <span className="line-through mx-3">
-                      {offer.originalPrice}
+                      Rs. {data.originalPrice}
                     </span>
                   </p>
                 </div>
                 <div className="py-4">
-                  <button className="p-1 rounded-full text-base font-normal text-center border border-[#52321b] hover:scale-105 transition-all px-6 py-2">
+                  <button
+                    className="p-1 rounded-full text-base font-normal text-center border border-[#52321b] hover:scale-105 transition-all px-6 py-2"
+                    onClick={() => handleAdd(data)}
+                  >
                     Add To Cart
                   </button>
                 </div>

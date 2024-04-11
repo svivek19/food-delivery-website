@@ -16,7 +16,7 @@ const Card = ({ product }) => {
     <div>
       <ToastContainer
         position="top-center"
-        autoClose={1000}
+        autoClose={2000}
         hideProgressBar={true}
         newestOnTop={false}
         closeButton={false}
