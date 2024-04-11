@@ -33,7 +33,10 @@ const CartItems = () => {
 
   return (
     <div>
-      <h1 className="m5-10 text-center text-2xl font-bold text-[#52321b]">
+      <h1
+        className="m5-10 text-center text-2xl font-bold text-[#52321b]"
+        data-aos="fade-up"
+      >
         Cart Items {`(${cartItem.length})`}
       </h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
@@ -42,6 +45,7 @@ const CartItems = () => {
             <div
               className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start"
               key={index}
+              data-aos="fade-up"
             >
               <div className="w-full md:w-1/2">
                 <img
@@ -91,7 +95,10 @@ const CartItems = () => {
           ))}
         </div>
         {/* Sub total */}
-        <div className=" my-10 md:my-32 select-none pb-10 mb:pb-16 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+        <div
+          className=" my-10 md:my-32 select-none pb-10 mb:pb-16 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3"
+          data-aos="fade-up"
+        >
           <div className="mb-2 flex justify-between">
             <p className="text-[#52321b] ">Subtotal</p>
             <p className="text-[#5c4432]">Rs. {subtotal}</p>

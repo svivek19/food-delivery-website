@@ -14,7 +14,7 @@ import Cart from "./pages/Cart";
 
 const App = () => {
   useEffect(() => {
-    Aos.init({ duration: "2000" });
+    Aos.init({ duration: "1000" });
   }, []);
 
   return (
