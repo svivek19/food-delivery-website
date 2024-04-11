@@ -8,12 +8,11 @@ import {
   decreaseQuantity,
   removeItem,
 } from "../reducers/cartReducer";
+import { Link } from "react-router-dom";
 
 const CartItems = () => {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.cart.items);
-
-  console.log(cartItem);
 
   const handleIncrease = (id) => {
     dispatch(increaseQuantity({ id }));
@@ -116,9 +115,14 @@ const CartItems = () => {
               </p>
             </div>
           </div>
-          <button className="mt-6 w-full rounded-md bg-[#52321b] py-1.5 font-medium text-[#f1eeeb] hover:bg-[#643e23] transition-all">
-            Check out
-          </button>
+          <div className="mt-6">
+            <Link
+              to={"/checkout"}
+              className="w-full rounded-md bg-[#52321b] py-2 px-5 font-medium text-[#f1eeeb] hover:bg-[#643e23] transition-all"
+            >
+              Check out
+            </Link>
+          </div>
         </div>
       </div>
     </div>

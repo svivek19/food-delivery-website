@@ -11,6 +11,7 @@ import Burger from "./pages/Burger";
 import Noodles from "./pages/Noodles";
 import ViewAll from "./pages/ViewAll";
 import Cart from "./pages/Cart";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const App = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const App = () => {
           <Route path="/noodles" element={<Noodles />} />
           <Route path="/allfoods" element={<ViewAll />} />
           <Route path="/cartitems" element={<Cart />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
         <Footer />
       </Router>
