@@ -10,9 +10,7 @@ export default function CheckoutForm() {
   const cartItems = useSelector((state) => state.cart.items);
 
   const [formErrors, setFormErrors] = useState({
-    firstName: true,
-    lastName: true,
-    email: true,
+    fullName: true,
     number: true,
     Address: true,
     city: true,
@@ -24,9 +22,7 @@ export default function CheckoutForm() {
 
   const validateForm = () => {
     const errors = {
-      firstName: formErrors.firstName,
-      lastName: formErrors.lastName,
-      email: formErrors.email,
+      fullName: formErrors.fullName,
       number: formErrors.number,
       Address: formErrors.Address,
       city: formErrors.city,
@@ -160,78 +156,26 @@ export default function CheckoutForm() {
             <div className="space-x-0 lg:flex lg:space-x-4">
               <div className="w-full lg:w-1/2">
                 <label
-                  htmlFor="firstName"
+                  htmlFor="fullName"
                   className="block mb-3 text-sm font-semibold text-gray-500"
                 >
-                  First Name
+                  Full Name
                 </label>
                 <input
-                  id="firstName"
+                  id="fullName"
                   type="text"
-                  placeholder="First Name"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  placeholder="Full Name"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                   onChange={(e) => {
                     setFormErrors({
                       ...formErrors,
-                      firstName: e.target.value.trim() === "",
+                      fullName: e.target.value.trim() === "",
                     });
                   }}
                 />
-                {formErrors.firstName && (
+                {formErrors.fullName && (
                   <p className="text-red-500 text-sm mt-1">
-                    Please enter your first name.
-                  </p>
-                )}
-              </div>
-              <div className="w-full lg:w-1/2 ">
-                <label
-                  htmlFor="lastName"
-                  className="block mb-3 text-sm font-semibold text-gray-500 mt-3 md:mt-0"
-                >
-                  Last Name
-                </label>
-                <input
-                  id="lastName"
-                  type="text"
-                  placeholder="Last Name"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  onChange={(e) => {
-                    setFormErrors({
-                      ...formErrors,
-                      lastName: e.target.value.trim() === "",
-                    });
-                  }}
-                />
-                {formErrors.lastName && (
-                  <p className="text-red-500 text-sm mt-1">
-                    Please enter your Last name.
-                  </p>
-                )}
-              </div>
-            </div>
-            <div className="mt-4 space-x-0 lg:flex lg:space-x-4">
-              <div className="w-full lg:w-1/2">
-                <label
-                  htmlFor="Email"
-                  className="block mb-3 text-sm font-semibold text-gray-500"
-                >
-                  Email
-                </label>
-                <input
-                  id="Email"
-                  type="text"
-                  placeholder="Email"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
-                  onChange={(e) => {
-                    setFormErrors({
-                      ...formErrors,
-                      email: e.target.value.trim() === "",
-                    });
-                  }}
-                />
-                {formErrors.email && (
-                  <p className="text-red-500 text-sm mt-1">
-                    Please enter your Email.
+                    Please enter your full name.
                   </p>
                 )}
               </div>
@@ -246,7 +190,7 @@ export default function CheckoutForm() {
                   id="number"
                   type="number"
                   placeholder="Mobile Number"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                   onChange={(e) => {
                     setFormErrors({
                       ...formErrors,
@@ -261,6 +205,7 @@ export default function CheckoutForm() {
                 )}
               </div>
             </div>
+
             <div className="mt-4">
               <div className="w-full">
                 <label
@@ -271,7 +216,7 @@ export default function CheckoutForm() {
                 </label>
                 <textarea
                   id="Address"
-                  className="w-full px-4 py-3 text-xs border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-3 text-xs border border-gray-300 rounded lg:text-sm outline-none"
                   name="Address"
                   cols="20"
                   rows="3"
@@ -302,7 +247,7 @@ export default function CheckoutForm() {
                   id="city"
                   type="text"
                   placeholder="City"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                   onChange={(e) => {
                     setFormErrors({
                       ...formErrors,
@@ -329,7 +274,7 @@ export default function CheckoutForm() {
                   minLength={6}
                   maxLength={6}
                   placeholder="Post Code"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                   onChange={(e) => {
                     setFormErrors({
                       ...formErrors,
@@ -364,7 +309,7 @@ export default function CheckoutForm() {
                   minLength={16}
                   maxLength={16}
                   placeholder="Card Number"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                   onChange={(e) => {
                     setFormErrors({
                       ...formErrors,
@@ -393,7 +338,7 @@ export default function CheckoutForm() {
                     maxLength={4}
                     autoComplete="off"
                     placeholder="Expiry Year"
-                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                     onChange={(e) => {
                       setFormErrors({
                         ...formErrors,
@@ -421,7 +366,7 @@ export default function CheckoutForm() {
                     maxLength={3}
                     autoComplete="off"
                     placeholder="CVV"
-                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
                     onChange={(e) => {
                       setFormErrors({
                         ...formErrors,
