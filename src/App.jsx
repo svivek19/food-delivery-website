@@ -12,6 +12,7 @@ import Noodles from "./pages/Noodles";
 import ViewAll from "./pages/ViewAll";
 import Cart from "./pages/Cart";
 import CheckoutPage from "./pages/CheckoutPage";
+import Login from "./pages/Login";
 
 const App = () => {
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/allfoods" element={<ViewAll />} />
           <Route path="/cartitems" element={<Cart />} />
           <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Footer />
       </Router>

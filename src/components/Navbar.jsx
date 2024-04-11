@@ -60,7 +60,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="text-3xl my-5 space-x-5 flex">
-          <CiUser className="text-[#52321b] cursor-pointer" />
+          <Link to={"/login"}>
+            <CiUser className="text-[#52321b] cursor-pointer" />
+          </Link>
           <Link to={"/cartitems"}>
             <div className="flex text-[#52321b]">
               <CiShoppingCart className=" cursor-pointer" />
