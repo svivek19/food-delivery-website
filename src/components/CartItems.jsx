@@ -47,12 +47,20 @@ const CartItems = () => {
 
   const handleCheckout = () => {
     if (!isLogin) {
-      toast.warning("Please authenticate to continue");
+      toast.warning("Please authenticate to continue", {
+        autoClose: 2000,
+      });
       setTimeout(() => {
         navigate("/auth");
-      }, 5000);
+      }, 2000);
     } else {
-      navigate("/checkout");
+      if (cartItem.length === 0) {
+        toast.info("Your cart is empty. Please add at least one item.", {
+          autoClose: 2000,
+        });
+      } else {
+        navigate("/checkout");
+      }
     }
   };
 
