@@ -88,7 +88,7 @@ const UserProfileForm = ({ user, updateUserProfile }) => {
               <div className="mt-6 py-4">
                 <button
                   type="button"
-                  className="px-6 py-2 text-indigo-700 rounded-md shadow-sm text-sm font-medium border border-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="px-6 py-2 text-indigo-700 rounded-md shadow-sm text-sm font-medium border border-indigo-600 hover:focus:outline-none hover:focus:ring-2 hover:focus:ring-offset-2 hover:focus:ring-indigo-500"
                   onClick={() => setIsEditing(true)}
                 >
                   Edit Profile

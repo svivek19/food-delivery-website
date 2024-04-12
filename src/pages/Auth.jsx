@@ -20,7 +20,6 @@ const Auth = () => {
           await setDoc(userDocRef, {
             email: userAuth.email,
             displayName: userAuth.displayName,
-            avatarURL: userAuth.photoURL,
           });
         }
       }
