@@ -20,30 +20,25 @@ const SigninSignup = () => {
     setError(null);
     setLoading(true);
 
-    if (isSignUp) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          setLoading(false);
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/");
-        })
-        .catch((err) => {
-          setLoading(false);
-          setError(err.message);
-        });
-    } else {
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          setLoading(false);
-          const user = userCredential.user;
-          console.log(user);
-          navigate("/");
-        })
-        .catch((err) => {
-          setLoading(false);
-          setError(err.message);
-        });
+    try {
+      if (isSignUp) {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        setLoading(false);
+        const user = userCredential.user;
+        console.log(user);
+        navigate("/");
+      } else {
+        await signInWithEmailAndPassword(auth, email, password);
+        setLoading(false);
+        navigate("/");
+      }
+    } catch (err) {
+      setLoading(false);
+      setError(err.message);
     }
   };
 
