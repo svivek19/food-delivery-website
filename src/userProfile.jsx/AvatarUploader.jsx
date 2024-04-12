@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import compressAndStoreImage from "./compressAndStoreImage";
 import { FaUserEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 const ImageUploader = () => {
   const fileInputRef = useRef(null);
@@ -32,33 +33,43 @@ const ImageUploader = () => {
   };
 
   return (
-    <div className="mt-4">
-      <input
-        type="file"
-        onChange={handleUpload}
-        accept="image/*"
-        className="hidden"
-        ref={fileInputRef}
-      />
-      <FaUserEdit
-        className="text-gray-500 cursor-pointer"
-        size={24}
-        onClick={handleEditClick}
-      />
-      <button className="hidden" onClick={handleEditClick} />
-      <button
-        className="ml-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-        onClick={handledel}
-      >
-        Delete
-      </button>
-      {image && (
-        <img
-          src={image}
-          alt="Avatar"
-          className="mt-2 rounded-full w-20 h-20 object-cover"
+    <div className="mt-4 md:w-5/6 w-11/12 mx-auto flex justify-center">
+      <div>
+        {image && (
+          <img
+            src={image}
+            alt="Avatar"
+            className="mt-2 rounded-full w-28 h-28 object-cover"
+          />
+        )}
+      </div>
+      <div>
+        <input
+          type="file"
+          onChange={handleUpload}
+          accept="image/*"
+          className="hidden"
+          ref={fileInputRef}
         />
-      )}
+      </div>
+
+      <div className="flex  space-x-1">
+        <div>
+          <FaUserEdit
+            className="text-gray-500 my-1 text-5xl cursor-pointer"
+            size={24}
+            onClick={handleEditClick}
+          />
+          <button className="hidden" onClick={handleEditClick} />
+        </div>
+
+        <div>
+          <MdDeleteForever
+            className="text-gray-500 text-3xl cursor-pointer"
+            onClick={handledel}
+          />
+        </div>
+      </div>
     </div>
   );
 };

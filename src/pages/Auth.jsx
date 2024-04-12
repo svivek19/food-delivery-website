@@ -42,12 +42,19 @@ const Auth = () => {
   };
 
   return (
-    <>
+    <div className="w-11/12 md:w-5/6 mx-auto text-center">
       {user ? (
-        <div className="mt-40">
-          <h2 className="text-2xl font-bold mb-4">Welcome, {user.email}</h2>
-          <AvatarUploader user={user} />
-          <UserProfileForm user={user} updateUserProfile={updateUserProfile} />
+        <div className="mt-28">
+          <h2 className="text-4xl font-semibold text-[#52321b] ">
+            Your Account
+          </h2>
+          <div>
+            <AvatarUploader user={user} />
+            <UserProfileForm
+              user={user}
+              updateUserProfile={updateUserProfile}
+            />
+          </div>
           <button
             className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
             onClick={() => auth.signOut()}
@@ -58,7 +65,7 @@ const Auth = () => {
       ) : (
         <SigninSignup />
       )}
-    </>
+    </div>
   );
 };
 
