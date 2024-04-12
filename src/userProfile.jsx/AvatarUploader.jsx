@@ -33,41 +33,45 @@ const ImageUploader = () => {
   };
 
   return (
-    <div className="mt-4 md:w-5/6 w-11/12 mx-auto flex justify-center">
+    <div className="mt-4 md:w-4/6 w-11/12 mx-auto flex justify-center bg-[#ececec] rounded-t-3xl p-4">
       <div>
-        {image && (
-          <img
-            src={image}
-            alt="Avatar"
-            className="mt-2 rounded-full w-28 h-28 object-cover"
-          />
-        )}
-      </div>
-      <div>
-        <input
-          type="file"
-          onChange={handleUpload}
-          accept="image/*"
-          className="hidden"
-          ref={fileInputRef}
-        />
-      </div>
-
-      <div className="flex  space-x-1">
         <div>
-          <FaUserEdit
-            className="text-gray-500 my-1 text-5xl cursor-pointer"
-            size={24}
-            onClick={handleEditClick}
-          />
-          <button className="hidden" onClick={handleEditClick} />
+          {image && (
+            <img
+              src={image}
+              alt="Avatar"
+              className="mt-2 rounded-full w-28 h-28 object-cover"
+            />
+          )}
         </div>
-
         <div>
-          <MdDeleteForever
-            className="text-gray-500 text-3xl cursor-pointer"
-            onClick={handledel}
-          />
+          <div>
+            <input
+              type="file"
+              onChange={handleUpload}
+              accept="image/*"
+              className="hidden"
+              ref={fileInputRef}
+            />
+          </div>
+
+          <div className="flex justify-center space-x-2 my-3">
+            <div>
+              <FaUserEdit
+                className="text-gray-500 my-1 text-5xl cursor-pointer hover:text-[#52321b] transition-all"
+                size={24}
+                onClick={handleEditClick}
+              />
+              <button className="hidden" onClick={handleEditClick} />
+            </div>
+
+            <div>
+              <MdDeleteForever
+                className="text-gray-500 hover:text-[#52321b] transition-all text-3xl cursor-pointer"
+                onClick={handledel}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ const Auth = () => {
       {user ? (
         <div className="mt-28">
           <h2 className="text-4xl font-semibold text-[#52321b] ">
-            Your Account
+            User Informations
           </h2>
           <div>
             <AvatarUploader user={user} />
@@ -56,7 +56,7 @@ const Auth = () => {
             />
           </div>
           <button
-            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            className="my-8 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
             onClick={() => auth.signOut()}
           >
             Sign out

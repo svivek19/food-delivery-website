@@ -18,37 +18,34 @@ const UserProfileForm = ({ user, updateUserProfile }) => {
       email: formData.email,
     }).then(() => {
       setFormData({
-        displayName: user.displayName || "",
-        email: user.email || "",
+        displayName: formData.displayName,
+        email: formData.email,
       });
       setIsEditing(false);
     });
   };
 
   return (
-    <div className="w-5/6 mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-      <div className="md:flex">
-        <div className="p-8">
-          <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-            User Information
-          </div>
+    <div className="w-11/12 md:w-4/6 mx-auto bg-[#ececec] rounded-b-3xl">
+      <div className="flex justify-center">
+        <div className="w-5/6">
           {isEditing ? (
-            <div className="mt-2 text-gray-600">
+            <div className="mt-2">
               <form onSubmit={handleSubmit}>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    Display Name:
+                  <label className="text-sm font-medium text-[#52321b]">
+                    Name:
                   </label>
                   <input
                     type="text"
                     name="displayName"
                     value={formData.displayName}
                     onChange={handleChange}
-                    className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    className="mt-1 p-2 w-full border capitalize border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
                 <div className="mt-4">
-                  <label className="block text-sm font-medium text-gray-700">
+                  <label className="block text-sm font-medium text-[#52321b]">
                     Email:
                   </label>
                   <input
@@ -59,10 +56,11 @@ const UserProfileForm = ({ user, updateUserProfile }) => {
                     className="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                   />
                 </div>
-                <div className="mt-6">
+                <div className="mt-6 py-4">
                   <button
-                    type="submit"
+                    type="button"
                     className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    onClick={handleSubmit}
                   >
                     Update Profile
                   </button>
@@ -70,26 +68,27 @@ const UserProfileForm = ({ user, updateUserProfile }) => {
               </form>
             </div>
           ) : (
-            <div className="mt-2 text-gray-600">
+            <div className="mt-2">
               <div>
-                <label className="block text-sm font-medium text-gray-700">
-                  Display Name:
-                </label>
-                <div className="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                <p className="text-lg text-start font-medium text-[#52321b]">
+                  Name:
+                </p>
+                <p className="mt-1 p-2 w-full text-lg border capitalize bg-gray-300 bg rounded-md">
                   {formData.displayName}
-                </div>
+                </p>
               </div>
               <div className="mt-4">
-                <label className="block text-sm font-medium text-gray-700">
+                <p className="text-lg text-start  font-medium text-[#52321b]">
                   Email:
-                </label>
-                <div className="mt-1 p-2 w-full border border-gray-300 rounded-md">
+                </p>
+                <p className="mt-1 p-2 text-lg border bg-gray-300 bg rounded-md ">
                   {formData.email}
-                </div>
+                </p>
               </div>
-              <div className="mt-6">
+              <div className="mt-6 py-4">
                 <button
-                  className="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  type="button"
+                  className="px-6 py-2 text-indigo-700 rounded-md shadow-sm text-sm font-medium border border-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   onClick={() => setIsEditing(true)}
                 >
                   Edit Profile
