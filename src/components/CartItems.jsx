@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { FaMinus } from "react-icons/fa6";
 import { MdOutlineDelete } from "react-icons/md";
@@ -8,11 +8,16 @@ import {
   decreaseQuantity,
   removeItem,
 } from "../reducers/cartReducer";
-import { Link } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CartItems = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItem = useSelector((state) => state.cart.items);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleIncrease = (id) => {
     dispatch(increaseQuantity({ id }));
@@ -30,8 +35,34 @@ const CartItems = () => {
     return total + item.price * item.quantity;
   }, 0);
 
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLogin(true);
+      }
+    });
+    return unsubscribe;
+  }, []);
+
+  const handleCheckout = () => {
+    if (!isLogin) {
+      toast.warning("Please authenticate to continue");
+      setTimeout(() => {
+        navigate("/auth");
+      }, 5000);
+    } else {
+      navigate("/checkout");
+    }
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
+      <ToastContainer pauseOnHover={false} />
       <h1
         className="m5-10 text-center text-2xl font-bold text-[#52321b]"
         data-aos="fade-up"
@@ -116,12 +147,12 @@ const CartItems = () => {
             </div>
           </div>
           <div className="mt-6">
-            <Link
-              to={"/checkout"}
+            <button
+              onClick={handleCheckout}
               className="w-full rounded-md bg-[#52321b] py-2 px-5 font-medium text-[#f1eeeb] hover:bg-[#643e23] transition-all"
             >
               Check out
-            </Link>
+            </button>
           </div>
         </div>
       </div>
