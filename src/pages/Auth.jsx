@@ -45,10 +45,15 @@ const Auth = () => {
     <>
       {user ? (
         <div className="mt-40">
-          <h2>Welcome, {user.email}</h2>
+          <h2 className="text-2xl font-bold mb-4">Welcome, {user.email}</h2>
           <AvatarUploader user={user} />
           <UserProfileForm user={user} updateUserProfile={updateUserProfile} />
-          <button onClick={() => auth.signOut()}>Sign out</button>
+          <button
+            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+            onClick={() => auth.signOut()}
+          >
+            Sign out
+          </button>
         </div>
       ) : (
         <SigninSignup />
