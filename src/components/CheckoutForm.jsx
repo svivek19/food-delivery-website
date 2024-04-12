@@ -235,7 +235,7 @@ export default function CheckoutForm() {
                 )}
               </div>
             </div>
-            <div className="space-x-0 lg:flex lg:space-x-4">
+            <div className="space-x-0 mt-2 lg:flex lg:space-x-4">
               <div className="w-full lg:w-1/2">
                 <label
                   htmlFor="city"
