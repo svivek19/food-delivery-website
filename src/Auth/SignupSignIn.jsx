@@ -29,7 +29,6 @@ const SigninSignup = () => {
         );
         setLoading(false);
         const user = userCredential.user;
-        console.log(user);
         navigate("/");
       } else {
         await signInWithEmailAndPassword(auth, email, password);
