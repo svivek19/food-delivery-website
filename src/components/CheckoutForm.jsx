@@ -15,8 +15,8 @@ export default function CheckoutForm() {
     dispatch(clearCart());
     navigate("/");
     setTimeout(() => {
-      alert("Order placed, Enjoy your food :)");
-    }, 1000);
+      alert("completed");
+    }, 2000);
   };
 
   const [formErrors, setFormErrors] = useState({
