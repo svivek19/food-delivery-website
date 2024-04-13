@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //Toast - Alert
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { MdPayment } from "react-icons/md";
+import { clearCart } from "../reducers/cartReducer";
+import StripeCheckout from "react-stripe-checkout";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutForm() {
   const cartItems = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleToken = (token) => {
+    console.log(token);
+    dispatch(clearCart());
+    navigate("/");
+  };
 
   const [formErrors, setFormErrors] = useState({
     fullName: true,
@@ -55,19 +64,10 @@ export default function CheckoutForm() {
 
   const handleBtn = (e) => {
     e.preventDefault();
-
-    const isFormValid = validateForm();
-
-    if (isFormValid) {
-      toast.success("Form is valid. Proceeding with payment.");
-    } else {
-      toast.info("Form is invalid. Please fill in all required fields.");
-    }
   };
 
   return (
     <div className="mt-24 mx-5">
-      <ToastContainer pauseOnHover={false} />
       <div className="flex flex-col md:w-10/12 mx-auto">
         <div>
           <div className="md:grid md:grid-cols-2">
@@ -396,13 +396,26 @@ export default function CheckoutForm() {
               </label>
             </div>
             <div className="my-6">
-              <button
-                onClick={handleBtn}
-                className=" rounded-md bg-[#3b2312] py-2 px-5 font-medium flex justify-center text-[#f1eeeb] hover:bg-[#643e23] transition-all items-center space-x-3"
+              <StripeCheckout
+                token={handleToken}
+                stripeKey="pk_test_51P4jNeSDmZniG20DYPKiBW7uTzNKmDuizt7YDqs9KhCvV2mMhJk8hAeLrM2z2g9R0D6TLJ1TaK49IbT3IU7AukDD00lq6NzSNG"
+                amount={calculateTotalPrice() * 100}
+                name="Vbite"
+                email="vbite@gmail.com"
+                description="Payment test using stripe checkout"
               >
-                <span className="text-lg">Proceed To Pay</span>
-                <MdPayment className="text-xl" />
-              </button>
+                <button
+                  onClick={handleBtn}
+                  className={`rounded-md bg-[#3b2312] py-2 px-5 font-medium flex justify-center text-[#f1eeeb] hover:bg-[#643e23] transition-all items-center space-x-3 ${
+                    validateForm() ? "" : "not-allowed-to-click"
+                  }`}
+                  disabled={!validateForm()}
+                  title={!validateForm() ? "Please fill all fields" : ""}
+                >
+                  <span className="text-lg">Proceed To Pay</span>
+                  <MdPayment className="text-xl" />
+                </button>
+              </StripeCheckout>
             </div>
           </div>
         </form>
