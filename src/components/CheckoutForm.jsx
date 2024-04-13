@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-//Toast - Alert
 import { MdPayment } from "react-icons/md";
 import { clearCart } from "../reducers/cartReducer";
 import StripeCheckout from "react-stripe-checkout";
@@ -16,6 +14,9 @@ export default function CheckoutForm() {
     console.log(token);
     dispatch(clearCart());
     navigate("/");
+    setTimeout(() => {
+      alert("Order placed, Enjoy your food :)");
+    }, 1000);
   };
 
   const [formErrors, setFormErrors] = useState({
@@ -24,9 +25,6 @@ export default function CheckoutForm() {
     Address: true,
     city: true,
     postcode: true,
-    cardNum: true,
-    year: true,
-    cvv: true,
   });
 
   const validateForm = () => {
@@ -36,9 +34,6 @@ export default function CheckoutForm() {
       Address: formErrors.Address,
       city: formErrors.city,
       postcode: formErrors.postcode,
-      cardNum: formErrors.cardNum,
-      year: formErrors.year,
-      cvv: formErrors.cvv,
     };
 
     for (const key in errors) {
@@ -290,99 +285,6 @@ export default function CheckoutForm() {
               </div>
             </div>
 
-            {/* card details */}
-            <h2 className="my-4 font-bold text-xl text-[#52321b]">
-              Card Details
-            </h2>
-
-            <div className="space-x-0 lg:flex lg:space-x-4">
-              <div className="w-full lg:w-1/2">
-                <label
-                  htmlFor="card-num"
-                  className="block mb-3 text-sm font-semibold text-gray-500"
-                >
-                  Card Number
-                </label>
-                <input
-                  id="card-num"
-                  type="number"
-                  minLength={16}
-                  maxLength={16}
-                  placeholder="Card Number"
-                  className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
-                  onChange={(e) => {
-                    setFormErrors({
-                      ...formErrors,
-                      cardNum: e.target.value.trim() === "",
-                    });
-                  }}
-                />
-                {formErrors.cardNum && (
-                  <p className="text-red-500 text-sm mt-1">
-                    Please enter your Card Number.
-                  </p>
-                )}
-              </div>
-              <div className="w-full flex gap-1 md:gap-3 mt-4 md:mt-0 lg:w-1/2 ">
-                <div className="w-full">
-                  <label
-                    htmlFor="year"
-                    className="block mb-3 text-sm font-semibold text-gray-500"
-                  >
-                    Expiry Year
-                  </label>
-                  <input
-                    id="year"
-                    type="number"
-                    minLength={4}
-                    maxLength={4}
-                    autoComplete="off"
-                    placeholder="Expiry Year"
-                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
-                    onChange={(e) => {
-                      setFormErrors({
-                        ...formErrors,
-                        year: e.target.value.trim() === "",
-                      });
-                    }}
-                  />
-                  {formErrors.year && (
-                    <p className="text-red-500 text-sm mt-1">
-                      Please enter your Expiry Year.
-                    </p>
-                  )}
-                </div>
-                <div className="w-full">
-                  <label
-                    htmlFor="cvv"
-                    className="block mb-3 text-sm font-semibold text-gray-500"
-                  >
-                    CVV
-                  </label>
-                  <input
-                    id="cvv"
-                    type="number"
-                    minLength={3}
-                    maxLength={3}
-                    autoComplete="off"
-                    placeholder="CVV"
-                    className="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm outline-none"
-                    onChange={(e) => {
-                      setFormErrors({
-                        ...formErrors,
-                        cvv: e.target.value.trim() === "",
-                      });
-                    }}
-                  />
-                  {formErrors.cvv && (
-                    <p className="text-red-500 text-sm mt-1">
-                      Please enter your CVV.
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-
             <div className="flex items-center mt-4">
               <label htmlFor="tick" className="flex items-center text-sm group">
                 <input
@@ -400,9 +302,10 @@ export default function CheckoutForm() {
                 token={handleToken}
                 stripeKey={import.meta.env.VITE_STRIPE_KEY}
                 amount={calculateTotalPrice() * 100}
-                name="Vbite"
-                email="vbite@gmail.com"
-                description="Payment test using stripe checkout"
+                name="Vivek Programmer"
+                email="svivek030503@gmail.com"
+                description="Payment using stripe checkout"
+                currency="INR"
               >
                 <button
                   onClick={handleBtn}
