@@ -398,7 +398,7 @@ export default function CheckoutForm() {
             <div className="my-6">
               <StripeCheckout
                 token={handleToken}
-                stripeKey="pk_test_51P4jNeSDmZniG20DYPKiBW7uTzNKmDuizt7YDqs9KhCvV2mMhJk8hAeLrM2z2g9R0D6TLJ1TaK49IbT3IU7AukDD00lq6NzSNG"
+                stripeKey={import.meta.env.VITE_STRIPE_KEY}
                 amount={calculateTotalPrice() * 100}
                 name="Vbite"
                 email="vbite@gmail.com"
