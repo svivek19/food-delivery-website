@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const UserProfileForm = ({ user, updateUserProfile }) => {
   const [formData, setFormData] = useState({
@@ -24,6 +24,10 @@ const UserProfileForm = ({ user, updateUserProfile }) => {
       setIsEditing(false);
     });
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="w-11/12 md:w-4/6 mx-auto bg-[#ececec] rounded-b-3xl">
