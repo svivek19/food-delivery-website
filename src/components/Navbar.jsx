@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/brandLogo.png";
-// icons
-import { CiUser } from "react-icons/ci";
-import { CiShoppingCart } from "react-icons/ci";
+import { CiUser, CiShoppingCart } from "react-icons/ci";
 import { HiMenu } from "react-icons/hi";
-import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const foodItem = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      if (scrollPosition > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(scrollPosition > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -31,6 +26,12 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const shouldHaveBorder = (pathname) => {
+    return location.pathname === pathname
+      ? "border-b border-b-slate-700 border-solid"
+      : "";
   };
 
   return (
@@ -45,16 +46,36 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex space-x-8 my-5 text-lg">
           <ul className="flex space-x-5">
-            <Link to={"/"} className="text-[#52321b] cursor-pointer">
+            <Link
+              to={"/"}
+              className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                "/"
+              )}`}
+            >
               Home
             </Link>
-            <Link to={"/pizza"} className="text-[#52321b] cursor-pointer">
+            <Link
+              to={"/pizza"}
+              className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                "/pizza"
+              )}`}
+            >
               Pizza
             </Link>
-            <Link to={"burger"} className="text-[#52321b] cursor-pointer">
+            <Link
+              to={"/burger"}
+              className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                "/burger"
+              )}`}
+            >
               Burger
             </Link>
-            <Link to={"noodles"} className="text-[#52321b] cursor-pointer">
+            <Link
+              to={"/noodles"}
+              className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                "/noodles"
+              )}`}
+            >
               Noodle's
             </Link>
           </ul>
@@ -65,7 +86,7 @@ const Navbar = () => {
           </Link>
           <Link to={"/cartitems"}>
             <div className="flex text-[#52321b]">
-              <CiShoppingCart className=" cursor-pointer" />
+              <CiShoppingCart className="cursor-pointer" />
               <span className="text-base">{`(${foodItem.length})`}</span>
             </div>
           </Link>
@@ -86,7 +107,9 @@ const Navbar = () => {
               <Link
                 to={"/"}
                 onClick={toggleMenu}
-                className="text-[#52321b] cursor-pointer"
+                className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                  "/"
+                )}`}
               >
                 Home
               </Link>
@@ -95,7 +118,9 @@ const Navbar = () => {
               <Link
                 to={"/pizza"}
                 onClick={toggleMenu}
-                className="text-[#52321b] cursor-pointer"
+                className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                  "/pizza"
+                )}`}
               >
                 Pizza
               </Link>
@@ -104,7 +129,9 @@ const Navbar = () => {
               <Link
                 to={"/burger"}
                 onClick={toggleMenu}
-                className="text-[#52321b] cursor-pointer"
+                className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                  "/burger"
+                )}`}
               >
                 Burger
               </Link>
@@ -113,7 +140,9 @@ const Navbar = () => {
               <Link
                 to={"/noodles"}
                 onClick={toggleMenu}
-                className="text-[#52321b] cursor-pointer"
+                className={`text-[#52321b] cursor-pointer ${shouldHaveBorder(
+                  "/noodles"
+                )}`}
               >
                 Noodle's
               </Link>
