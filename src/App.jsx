@@ -21,7 +21,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="overflow-y-scroll scrollbar-w-auto scrollbar-track-[#52321b] scrollbar-thumb-[#5e3e27] scrollbar-thumb-hover-[#5e3e27] scrollbar-hide">
+    <div className="overflow-y-scroll overflow-hidden scrollbar-w-auto scrollbar-track-[#52321b] scrollbar-thumb-[#5e3e27] scrollbar-thumb-hover-[#5e3e27] scrollbar-hide">
       <Router>
         <Offer />
         <Navbar />
