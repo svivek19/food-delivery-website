@@ -10,8 +10,8 @@ import {
 } from "../reducers/cartReducer";
 import { getAuth } from "firebase/auth";
 import { useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -47,16 +47,16 @@ const CartItems = () => {
 
   const handleCheckout = () => {
     if (!isLogin) {
-      toast.warning("Please authenticate to continue", {
-        autoClose: 2000,
+      toast.error("Please authenticate to continue", {
+        duration: 2000,
       });
       setTimeout(() => {
         navigate("/auth");
       }, 2000);
     } else {
       if (cartItem.length === 0) {
-        toast.info("Your cart is empty. Please add at least one item.", {
-          autoClose: 2000,
+        toast.error("Your cart is empty. Please add at least one item.", {
+          duration: 2000,
         });
       } else {
         navigate("/checkout");
@@ -70,7 +70,7 @@ const CartItems = () => {
 
   return (
     <div>
-      <ToastContainer pauseOnHover={false} />
+      <Toaster />
       <h1
         className="m5-10 text-center text-2xl font-bold text-[#52321b]"
         data-aos="fade-up"

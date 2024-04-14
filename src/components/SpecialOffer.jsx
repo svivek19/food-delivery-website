@@ -5,7 +5,7 @@ import { db } from "../firebase";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { addItem } from "../reducers/cartReducer";
-import { Bounce, ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 
 const SpecialOffer = () => {
   const dispatch = useDispatch();
@@ -35,29 +35,7 @@ const SpecialOffer = () => {
 
   return (
     <div className="w-full bg-[#52321b] px-0 py-4 md:p-5">
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={true}
-        newestOnTop={false}
-        closeButton={false}
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover={false}
-        theme="light"
-        transition={Bounce}
-        className="flex justify-center flex-col mt-20 space-y-2"
-        toastStyle={{
-          width: "fit-content",
-          minWidth: "100px",
-          minHeight: "5px",
-          borderRadius: "8px",
-          fontWeight: "bold",
-          padding: "0",
-          color: "#52321b",
-        }}
-      />
+      <Toaster />
       <div className=" w-[95%] md:w-5/6 mx-auto text-3xl text-center font-medium">
         <div className="text-[#e4c9b5] py-2 text-start" data-aos="fade-up">
           <h1>Special Offers</h1>

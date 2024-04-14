@@ -4,6 +4,7 @@ import { MdPayment } from "react-icons/md";
 import { clearCart } from "../reducers/cartReducer";
 import StripeCheckout from "react-stripe-checkout";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function CheckoutForm() {
   const cartItems = useSelector((state) => state.cart.items);
@@ -15,7 +16,7 @@ export default function CheckoutForm() {
     dispatch(clearCart());
     navigate("/");
     setTimeout(() => {
-      alert("completed");
+      toast.success("Order placed, Enjoy your food", { duration: 5000 });
     }, 2000);
   };
 
@@ -63,6 +64,7 @@ export default function CheckoutForm() {
 
   return (
     <div className="mt-24 mx-5">
+      <Toaster />
       <div className="flex flex-col md:w-10/12 mx-auto">
         <div>
           <div className="md:grid md:grid-cols-2">
