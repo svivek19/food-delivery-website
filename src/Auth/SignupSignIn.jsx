@@ -51,7 +51,7 @@ const SigninSignup = () => {
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <form className="space-y-6" onSubmit={handleAuth}>
-          <div>
+          <div className="text-start">
             <label
               htmlFor="email"
               className="block text-sm font-medium leading-6 text-[#52321b]"
