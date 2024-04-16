@@ -5,6 +5,8 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import "../App.css";
 
 const SigninSignup = () => {
   const [email, setEmail] = useState("");
@@ -38,6 +40,8 @@ const SigninSignup = () => {
     } catch (err) {
       setLoading(false);
       setError(err.message);
+      setEmail("");
+      setPassword("");
     }
   };
 
@@ -100,9 +104,18 @@ const SigninSignup = () => {
           <div>
             <button
               type="submit"
+              disabled={loading}
               className="flex w-full justify-center rounded-md bg-[#52321b] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm "
             >
-              {isSignUp ? "Sign Up" : "Sign In"}
+              {loading ? (
+                <div className="text-xl animate-spin">
+                  <AiOutlineLoading3Quarters />
+                </div>
+              ) : isSignUp ? (
+                "Sign Up"
+              ) : (
+                "Sign In"
+              )}
             </button>
           </div>
         </form>
