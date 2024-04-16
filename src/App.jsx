@@ -15,6 +15,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 import Auth from "./pages/Auth";
 import "./components/Scrollbar.css";
 import AdminPage from "./pages/AdminPage";
+import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   useEffect(() => {
@@ -37,6 +38,7 @@ const App = () => {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/admin" element={<AdminPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
         <Footer />

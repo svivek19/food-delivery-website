@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -44,6 +44,10 @@ const SigninSignup = () => {
       setPassword("");
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 pt-12 lg:px-8">

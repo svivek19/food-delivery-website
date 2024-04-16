@@ -14,8 +14,7 @@ const Admin = () => {
   const handleForm = (e) => {
     e.preventDefault();
     if (adminMail === preEmail && adminPassword === prePass) {
-      // navigate('')
-      alert("navigate");
+      navigate("/dashboard");
     } else {
       toast.error("Only access for admin");
       setAdminMail("");
