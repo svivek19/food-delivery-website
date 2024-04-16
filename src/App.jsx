@@ -14,6 +14,7 @@ import Cart from "./pages/Cart";
 import CheckoutPage from "./pages/CheckoutPage";
 import Auth from "./pages/Auth";
 import "./components/Scrollbar.css";
+import AdminPage from "./pages/AdminPage";
 
 const App = () => {
   useEffect(() => {
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/cartitems" element={<Cart />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/admin" element={<AdminPage />} />
           </Routes>
         </div>
         <Footer />
