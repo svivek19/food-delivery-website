@@ -31,10 +31,10 @@ const Card = ({ product }) => {
             </div>
 
             <div className="p-2 text-start" data-aos="fade-up">
-              <h1 className="text-2xl font-bold text-[#52321b] ">
+              <h1 className="text-2xl font-bold text-[#52321b] capitalize">
                 {data.name}
               </h1>
-              <p className="mt-2 text-lg text-justify text-[#6e6a67]">
+              <p className="mt-2 text-lg text-justify text-[#6e6a67] capitalize">
                 {data.description.length > 100
                   ? data.description.slice(0, 100) + "..."
                   : data.description}

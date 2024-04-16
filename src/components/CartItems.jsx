@@ -94,7 +94,7 @@ const CartItems = () => {
               </div>
               <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                 <div className="mt-5 sm:mt-0">
-                  <h2 className="text-lg font-bold text-[#52321b]">
+                  <h2 className="text-lg font-bold text-[#52321b] capitalize">
                     {food.name}
                   </h2>
                   <p className="mt-1 text-base mb-4 text-[#5c4432]">
