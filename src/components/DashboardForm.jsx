@@ -65,6 +65,7 @@ const DashboardForm = () => {
             <select
               name="collection"
               id="collection"
+              required
               onChange={handleCollectionChange}
               className="block w-full bg-slate-100 px-2 outline-none rounded-md border-0 py-1.5 text-[#52321b] shadow-sm placeholder:text-[#bebab7] sm:text-sm sm:leading-6"
             >
