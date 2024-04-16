@@ -41,9 +41,9 @@ const Navbar = () => {
       } w-full z-50`}
     >
       <div className="flex justify-around items-center px-4 md:px-0">
-        <div>
+        <Link to={"/"}>
           <img src={Logo} alt="brand logo" width={70} />
-        </div>
+        </Link>
         <div className="hidden md:flex space-x-8 my-5 text-lg">
           <ul className="flex space-x-5">
             <Link
