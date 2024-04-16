@@ -138,7 +138,7 @@ const DashboardForm = () => {
               </label>
             </div>
             <div className="mt-2">
-              <input
+              <textarea
                 id="description"
                 name="description"
                 type="text"
