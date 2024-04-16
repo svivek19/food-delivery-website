@@ -68,8 +68,10 @@ const Auth = () => {
         )}
       </div>
 
-      <div className="w-11/12 md:w-5/6 mx-auto text-center">
-        <Link to={"/admin"}>admin login</Link>
+      <div className="w-11/12 md:w-5/6 mx-auto text-center mt-4 mb-8">
+        <Link to={"/admin"} className="text-base text-violet-600 underline">
+          admin login
+        </Link>
       </div>
     </div>
   );
